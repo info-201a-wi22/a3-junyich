@@ -20,9 +20,9 @@ Winter 2022
 <br>
 
 <p align = "center">
-  <img src ="https://github.com/info-201a-wi22/a3-junyich/raw/main/docs/index_pic/RadioHour-Mass-Incarceration.jpg">
+  <img src ="index_pic/RadioHour-Mass-Incarceration.jpg">
 </p>
-
+<!-- "https://github.com/info-201a-wi22/a3-junyich/raw/main/docs/index_pic/RadioHour-Mass-Incarceration.jpg" -->
 <br>
 <div align = "center"><h2>Introduction</h2></div>
 &nbsp;&nbsp;&nbsp;&nbsp;The dataset [(Incarceration.csv)](https://github.com/vera-institute/incarceration-trends/raw/master/incarceration_trends.csv) is released and managed by Vera since December 2015. The dataset uses works done by Bureau of Justice Statistics, Census of Jails, and Annual Survey of Jails to summarise incarceration data of each county in every state. What Vera has done expand the focus of researching incarceration from state level to county level and includes the level of details that enbales unpacking causes and consequences.
