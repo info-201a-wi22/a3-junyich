@@ -7,6 +7,7 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+source("../source/summary.R")
 ```
 
 <br>
@@ -22,30 +23,53 @@ Winter 2022
 <div align = "center"><h2>Introduction</h2></div>
 &nbsp;&nbsp;&nbsp;&nbsp;The dataset [(Incarceration.csv)](https://github.com/vera-institute/incarceration-trends/raw/master/incarceration_trends.csv) is released and managed by Vera since December 2015. The dataset uses works done by Bureau of Justice Statistics, Census of Jails, and Annual Survey of Jails to summarise incarceration data of each county in every state. What Vera has done expand the focus of researching incarceration from state level to county level and includes the level of details that enbales unpacking causes and consequences.
 
-```{r, echo=FALSE, message=FALSE,include=TRUE}
-source("../source/summary.R")
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+col <- used_col
+max_jail_year <- year
+max_jail <- num
+max_prison_gro_year <- max_pri_wa_year
+max_prison_gro <- round(max_pri_wa, digit = 4) * 100
+max_pop <- round(max_grow_pop, digit = 4) * 100
 ```  
-&nbsp;&nbsp;&nbsp;&nbsp;Among all 121 varibales, i focused on analyzing relationships between population, sex, and jail/prison population. I chose the following `r col`
+&nbsp;&nbsp;&nbsp;&nbsp;Among all 121 varibales, i focused on analyzing relationships between population, sex, and jail/prison population. I chose the following: _"`r col`"_. Those columns allow me to explore the topic i am intereted in and reflect the how the data different geographically. By incorperting visualiztions of those columns, i am able to enplore the causes and consequnces of incarceration of specific groups of people.
+
+<br>
+
+<div align = "center"><h2>Summary</h2></div>
+After my analysis, i found the following interesting result.
+- **Maximum number of in jail population occured in `r max_jail_year`. And the number of people in jail is `r max_jail`**
+- **In State of Washington, the maximum rate of growth of prison population occured in `r max_prison_gro_year` at a rate of `r max_prison_gro`% compare to 2001**
+- **The maximum growth of population in state of Washington occured in 2016, at a rate of `r max_pop`% from last year.**
+
+<br>
 
 
+<div align = "center"><h2>Findings</h2></div>
 
-
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+<h4>Jail Population</h4>
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+plot(jail_pop_growth)
 ```
 
-## Including Plots
+&nbsp;&nbsp;&nbsp;&nbsp;This chart visualizes the change in US total jail population with other four sub factors tagged by sex and age. The graph offers a clear and strong visual signal of how did the incarcernation change over 2000 and 2018. We can see that the total population reached its peak around 2008, the year of economic recession. And the change did not jump over to its peak from previous year, instead, it grew at a roughly constant rate since 2000. Such trend indicate that the what we called the great econmic recession in 2008 was the result of a series of events that already shown in the incarcernation data.
 
-You can also embed plots, for example:
+<br>
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+<h4>Prison Population in WA</h4>
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+plot(prison_change_wa)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+&nbsp;&nbsp;&nbsp;&nbsp;This chart refects how the prison population and the total population of Washington state changed over the years. I chose to include this graph to show that the improvement of crimes situation from 2000 to 2016. The linear regression line of prison population indicates the gradual decrease in people in jail from 2000 to 2016.
+
+<br>
+
+<h4>Jail Population: US</h4>
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+plot(jail_pop_map)
+```
+
+&nbsp;&nbsp;&nbsp;&nbsp;This chart demonstrate the jail population in US geographically by states. Through the graph, we can tell that California and Texas have the highest jailed population at the year of 2016. The geographical distribution would help people to form the basic understanding of the data and grant researchers more convenient access to the problmes such as what factors contributed to such high jail population in CA and TA?
+
+<br>
+
