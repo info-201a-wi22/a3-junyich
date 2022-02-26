@@ -76,7 +76,7 @@ jail_pop_map <- ggplot(state_shape) +
   ) +
   coord_map() + # use a map-based coordinate system
   scale_fill_continuous(low = "#132B43", high = "Red") +
-  labs(fill = "Jail Population 2016", title = "Jailed Population per States in US") +
+  labs(fill = "Jail Population", title = "Jailed Population per States in US 2016") +
   theme_minimal()
 
 jail_pop_map
